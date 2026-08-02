@@ -4,37 +4,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="yandex-verification" content="d65397ead09b0660" />
-<title>Даниил Лисицин — проекты и портфолио</title>
+<title>Лисицин & Селиванова — сайты для бизнеса</title>
 <meta name="description" content="Портфолио веб-программиста Даниила Лисицина и веб-дизайнера Анастасии Селивановой: сайты для малого бизнеса под ключ.">
+<link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#141414;--gray:#8a8a8a;--line:#e6e6e2;--radius:16px}
+:root{
+  --cream:#f7f3ea;
+  --cream2:#efe9db;
+  --ink:#1d1a16;
+  --gold:#a8894a;
+  --gold-soft:rgba(168,137,74,.16);
+  --gray:#7d7568;
+  --line:#e4dccb;
+  --radius:18px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:860px;margin:0 auto;padding:0 22px}
-header{padding:110px 0 60px}
-h1{font-weight:800;text-transform:uppercase;font-size:clamp(34px,6vw,58px);line-height:1.06}
-.sub{margin-top:16px;color:var(--gray);font-weight:500;font-size:17px;max-width:560px}
-.links{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:14px;border:1.5px solid var(--ink);transition:.2s}
-.btn:hover{background:var(--ink);color:#fff}
-.btn.solid{background:var(--ink);color:#fff}
-.btn.solid:hover{opacity:.8}
-h2{font-weight:800;text-transform:uppercase;font-size:22px;margin:70px 0 24px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{position:relative;padding:100px 0 70px;overflow:hidden}
+header::before{content:'';position:absolute;top:-180px;right:-140px;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,var(--gold-soft),transparent 65%);pointer-events:none}
+.brand{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.monogram{width:64px;height:64px;border-radius:16px;background:var(--ink);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;
+  font-weight:700;font-size:24px;letter-spacing:.02em;box-shadow:0 10px 30px rgba(29,26,22,.18)}
+.brand small{display:block;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(38px,6vw,58px);line-height:1.1;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--gold)}
+.sub{margin-top:18px;color:var(--gray);font-weight:500;font-size:17px;max-width:600px}
+.links{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:14px;
+  border:1.5px solid var(--ink);transition:.25s}
+.btn:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.btn.solid{background:var(--ink);color:var(--cream)}
+.btn.solid:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+
+/* ---------- headings ---------- */
+h2{font-family:'Playfair Display',serif;font-weight:600;font-size:30px;margin:64px 0 8px}
+.h2-sub{color:var(--gray);font-size:14px;font-weight:600;margin-bottom:26px;letter-spacing:.02em}
+
+/* ---------- team ---------- */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.person{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.25s}
+.person:hover{border-color:var(--gold);box-shadow:0 14px 40px rgba(29,26,22,.07);transform:translateY(-3px)}
+.person__ava{width:52px;height:52px;border-radius:50%;background:var(--gold-soft);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:19px;margin-bottom:16px}
+.person h3{font-weight:800;font-size:18px}
+.person .role{display:inline-block;margin-top:8px;font-weight:700;font-size:11px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:5px 14px}
+.person p{color:var(--gray);font-weight:500;font-size:14.5px;margin-top:12px}
+.person a{display:inline-block;margin-top:16px;font-weight:700;font-size:13px;color:var(--ink);
+  border-bottom:2px solid var(--gold);transition:.2s}
+.person a:hover{color:var(--gold)}
+
+/* ---------- projects ---------- */
 .cards{display:grid;gap:16px}
-.cards.two{grid-template-columns:1fr 1fr}
-.card{border:1.5px solid var(--line);border-radius:var(--radius);padding:26px;transition:.25s;display:block}
-.card:hover{border-color:var(--ink);transform:translateY(-3px)}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 26px 26px 30px;transition:.25s;display:block;overflow:hidden}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);
+  opacity:0;transition:.25s}
+.card:hover{border-color:var(--gold);box-shadow:0 16px 44px rgba(29,26,22,.08);transform:translateY(-3px)}
+.card:hover::before{opacity:1}
+.card__top{display:flex;justify-content:space-between;align-items:center;gap:14px}
 .card h3{font-weight:800;font-size:18px}
-.card p{color:var(--gray);font-weight:500;font-size:15px;margin-top:6px}
-.card span{display:inline-block;margin-top:14px;font-weight:700;font-size:13px;border-bottom:2px solid var(--ink)}
-.person .role{display:inline-block;margin-top:8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);background:#f2f2ee;border-radius:999px;padding:5px 14px}
-.person:hover{transform:none}
-footer{padding:70px 0 46px;color:var(--gray);font-size:14px;font-weight:500}
-@media(max-width:640px){.cards.two{grid-template-columns:1fr}}
+.card .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:22px;flex-shrink:0}
+.card .tag{display:inline-block;margin-top:10px;font-weight:700;font-size:11px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--gray);background:var(--cream2);border-radius:999px;padding:4px 12px}
+.card p{color:var(--gray);font-weight:500;font-size:15px;margin-top:10px}
+.card .open{display:inline-block;margin-top:14px;font-weight:700;font-size:13px;color:var(--gold)}
+.card .open::after{content:' →';transition:.2s}
+.card:hover .open::after{margin-left:4px}
+
+/* ---------- footer ---------- */
+footer{margin-top:80px;padding:40px 0 46px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  color:var(--gray);font-size:14px;font-weight:500}
+footer .fmon{width:38px;height:38px;border-radius:10px;font-size:15px}
+
+@media(max-width:640px){
+  .team{grid-template-columns:1fr}
+  header{padding:70px 0 50px}
+}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -51,7 +107,11 @@ footer{padding:70px 0 46px;color:var(--gray);font-size:14px;font-weight:500}
 </head>
 <body>
 <header class="wrap">
-  <h1>Даниил<br>Лисицин</h1>
+  <div class="brand">
+    <div class="monogram">Л&С</div>
+    <small>веб-студия · дизайн и разработка</small>
+  </div>
+  <h1>Сайты, которые приводят <em>клиентов</em></h1>
   <p class="sub">Мы — веб-программист Даниил Лисицин и веб-дизайнер Анастасия Селиванова. Делаем сайты для малого бизнеса под ключ: дизайн, вёрстка, запуск и поддержка.</p>
   <div class="links">
     <a class="btn solid" href="https://github.com/dlisitsinn" target="_blank" rel="noopener">GitHub</a>
@@ -62,46 +122,57 @@ footer{padding:70px 0 46px;color:var(--gray);font-size:14px;font-weight:500}
 
 <main class="wrap">
   <h2>Команда</h2>
-  <div class="cards two">
-    <div class="card person">
+  <p class="h2-sub">двое — и этого достаточно, чтобы сделать всё</p>
+  <div class="team">
+    <div class="person">
+      <div class="person__ava">ДЛ</div>
       <h3>Даниил Лисицин</h3>
       <span class="role">веб-программист</span>
       <p>Вёрстка и логика сайтов, подключение домена и хостинга, формы записи и заявок, запуск и техническая поддержка.</p>
-      <span><a href="https://vk.com/qwlisin" target="_blank" rel="noopener">ВКонтакте →</a></span>
+      <a href="https://vk.com/qwlisin" target="_blank" rel="noopener">ВКонтакте →</a>
     </div>
-    <div class="card person">
+    <div class="person">
+      <div class="person__ava">АС</div>
       <h3>Анастасия Селиванова</h3>
       <span class="role">веб-дизайнер</span>
       <p>Дизайн-концепция и фирменный стиль, типографика и подбор фотографий, макеты страниц, которые продают.</p>
-      <span><a href="https://vk.com/ID_АНАСТАСИИ" target="_blank" rel="noopener">ВКонтакте →</a></span>
+      <a href="https://vk.com/ID_АНАСТАСИИ" target="_blank" rel="noopener">ВКонтакте →</a>
     </div>
   </div>
 
   <h2>Проекты</h2>
+  <p class="h2-sub">каждый сайт — живой, можно открыть и потрогать</p>
   <div class="cards">
     <a class="card" href="https://dlisitsinn.github.io/velvet/" target="_blank" rel="noopener">
-      <h3>Velvet — сайт салона красоты</h3>
+      <div class="card__top"><h3>Velvet — сайт салона красоты</h3><span class="num">01</span></div>
+      <span class="tag">салон красоты</span>
       <p>Одностраничный сайт beauty space в премиальном стиле: прайс по грейдам мастеров, сеты услуг, фото-баннеры направлений, форма консультации, отзывы и сертификаты. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span>Открыть сайт →</span>
+      <span class="open">Открыть сайт</span>
     </a>
     <a class="card" href="/klassik-mebel/">
-      <h3>Классик-мебель — сайт мебельного салона</h3>
+      <div class="card__top"><h3>Классик-мебель — сайт мебельного салона</h3><span class="num">02</span></div>
+      <span class="tag">мебель на заказ</span>
       <p>Лендинг для салона мебели на заказ в Карталах: адаптивная вёрстка, галерея с лайтбоксом, бегущие ленты фотографий, SEO-разметка. Чистые HTML/CSS/JS без фреймворков.</p>
-      <span>Открыть сайт →</span>
+      <span class="open">Открыть сайт</span>
     </a>
     <a class="card" href="/cafe-astoria/">
-      <h3>Кафе «Астория» — сайт с меню и банкетами</h3>
+      <div class="card__top"><h3>Кафе «Астория» — сайт с меню и банкетами</h3><span class="num">03</span></div>
+      <span class="tag">кафе</span>
       <p>Одностраничный сайт кафе в Карталах: полное меню на 168 позиций с навигацией по разделам, блок банкетов, встроенная карта проезда. Все иллюстрации нарисованы кодом (SVG) в стиле печатного меню — сайт работает без единой картинки-файла.</p>
-      <span>Открыть сайт →</span>
+      <span class="open">Открыть сайт</span>
     </a>
     <a class="card" href="/cafe-aelita/">
-      <h3>Кафе «Аэлита» — сайт с меню и банкетами</h3>
+      <div class="card__top"><h3>Кафе «Аэлита» — сайт с меню и банкетами</h3><span class="num">04</span></div>
+      <span class="tag">кафе</span>
       <p>Второй сайт той же сети со своей цветовой темой. Оба собираются Python-генератором из одного шаблона: меню, адреса и палитра подставляются из данных — правка в одном месте обновляет оба сайта.</p>
-      <span>Открыть сайт →</span>
+      <span class="open">Открыть сайт</span>
     </a>
   </div>
 </main>
 
-<footer class="wrap">© Даниил Лисицин и Анастасия Селиванова</footer>
+<footer class="wrap">
+  <div class="monogram fmon">Л&С</div>
+  <span>© Даниил Лисицин и Анастасия Селиванова · сделано вручную, без конструкторов</span>
+</footer>
 </body>
 </html>
