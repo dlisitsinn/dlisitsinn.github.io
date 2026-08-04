@@ -67,17 +67,17 @@ h2{font-family:'Playfair Display',serif;font-weight:600;font-size:30px;margin:64
 .cards{display:grid;gap:16px}
 .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 26px 26px 30px;transition:.25s;display:block;overflow:hidden}
-.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ac,var(--gold));
   opacity:0;transition:.25s}
-.card:hover{border-color:var(--gold);box-shadow:0 16px 44px rgba(29,26,22,.08);transform:translateY(-3px)}
+.card:hover{border-color:var(--ac,var(--gold));box-shadow:0 16px 44px rgba(29,26,22,.08);transform:translateY(-3px)}
 .card:hover::before{opacity:1}
 .card__top{display:flex;justify-content:space-between;align-items:center;gap:14px}
 .card h3{font-weight:800;font-size:18px}
-.card .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:22px;flex-shrink:0}
+.card .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--ac,var(--gold));font-size:22px;flex-shrink:0}
 .card .tag{display:inline-block;margin-top:10px;font-weight:700;font-size:11px;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--gray);background:var(--cream2);border-radius:999px;padding:4px 12px}
+  letter-spacing:.1em;color:var(--ac,var(--gray));background:color-mix(in srgb,var(--ac,#8a7a5e) 10%,#fff);border-radius:999px;padding:4px 12px}
 .card p{color:var(--gray);font-weight:500;font-size:15px;margin-top:10px}
-.card .open{display:inline-block;margin-top:14px;font-weight:700;font-size:13px;color:var(--gold)}
+.card .open{display:inline-block;margin-top:14px;font-weight:700;font-size:13px;color:var(--ac,var(--gold))}
 .card .open::after{content:' →';transition:.2s}
 .card:hover .open::after{margin-left:4px}
 
@@ -143,56 +143,62 @@ footer .fmon{width:38px;height:38px;border-radius:10px;font-size:15px}
   <h2>Проекты</h2>
   <p class="h2-sub">каждый сайт — живой, можно открыть и потрогать</p>
   <div class="cards">
-    <a class="card" href="https://dlisitsinn.github.io/radiant-ride/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Radiant Ride — сайт детейлинг-студии и автосервиса</h3><span class="num">01</span></div>
+    <a class="card" style="--ac:#b5542e" href="https://dlisitsinn.github.io/pure-vision/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>Pure Vision — сайт архитектурного бюро</h3><span class="num">01</span></div>
+      <span class="tag">архитектура · интерьеры</span>
+      <p>Минимализм в духе лучших мировых бюро: фото во весь экран, 10 проектов «лесенкой», тёмный блок о команде, этапы работы и форма заявки. Вся графика сгенерирована специально под сайт.</p>
+      <span class="open">Открыть сайт</span>
+    </a>
+    <a class="card" style="--ac:#253ff6" href="https://dlisitsinn.github.io/radiant-ride/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>Radiant Ride — сайт детейлинг-студии и автосервиса</h3><span class="num">02</span></div>
       <span class="tag">автосервис · детейлинг · мойка</span>
       <p>Тёмный сайт детейлинг-студии с лаймовыми акцентами: главный экран с крупной типографикой и фотографией автомобилей, три направления услуг, девять карточек с ценами, слайдер «Наши работы» с реальными проектами, акция, отзывы клиентов и форма онлайн-записи. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="https://dlisitsinn.github.io/dental/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>DENTAL — сайт стоматологической клиники</h3><span class="num">02</span></div>
+    <a class="card" style="--ac:#2f8f83" href="https://dlisitsinn.github.io/dental/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>DENTAL — сайт стоматологической клиники</h3><span class="num">03</span></div>
       <span class="tag">стоматология</span>
       <p>Сайт семейной стоматологии в кремово-бирюзовой гамме: услуги с ценами, акции, врачи с фотографиями, отзывы пациентов, фотогалерея клиники и форма записи на бесплатную консультацию — без навязчивых всплывающих окон. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="https://dlisitsinn.github.io/gymgod/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>GYMGOD — сайт фитнес-клуба</h3><span class="num">03</span></div>
+    <a class="card" style="--ac:#e0452a" href="https://dlisitsinn.github.io/gymgod/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>GYMGOD — сайт фитнес-клуба</h3><span class="num">04</span></div>
       <span class="tag">фитнес-клуб</span>
       <p>Неоновый сайт круглосуточного фитнес-клуба в розово-синей гамме: главный экран со сменой фотографий зала, бегущая лента, зоны клуба, тарифы абонементов, галерея и форма записи на бесплатную тренировку. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="https://dlisitsinn.github.io/sally/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Sally — сайт цветочного магазина</h3><span class="num">04</span></div>
+    <a class="card" style="--ac:#d66a9e" href="https://dlisitsinn.github.io/sally/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>Sally — сайт цветочного магазина</h3><span class="num">05</span></div>
       <span class="tag">цветочный магазин</span>
       <p>Витрина цветочного магазина: каталог букетов с ценами — розы, пионы, авторские композиции, — оформление заказа с доставкой. Живое одностраничное приложение, всё работает в браузере без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="https://dlisitsinn.github.io/pion/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>«Пион» — сайт ресторана авторской кухни</h3><span class="num">05</span></div>
+    <a class="card" style="--ac:#b23a48" href="https://dlisitsinn.github.io/pion/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>«Пион» — сайт ресторана авторской кухни</h3><span class="num">06</span></div>
       <span class="tag">ресторан</span>
       <p>Светлый одностраничный сайт ресторана: анимированное интро-приветствие, главный экран со сменой фотографий зала, меню с переключением разделов, новости, банкеты, доставка, карта лояльности и всплывающая форма бронирования. Чистые HTML/CSS/JS без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="https://dlisitsinn.github.io/velvet/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Velvet — сайт салона красоты</h3><span class="num">06</span></div>
+    <a class="card" style="--ac:#7c5cbf" href="https://dlisitsinn.github.io/velvet/" target="_blank" rel="noopener">
+      <div class="card__top"><h3>Velvet — сайт салона красоты</h3><span class="num">07</span></div>
       <span class="tag">салон красоты</span>
       <p>Одностраничный сайт beauty space в премиальном стиле: прайс по грейдам мастеров, сеты услуг, фото-баннеры направлений, форма консультации, отзывы и сертификаты. Чистые HTML/CSS/JS без конструкторов.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="/klassik-mebel/">
-      <div class="card__top"><h3>Классик-мебель — сайт мебельного салона</h3><span class="num">07</span></div>
+    <a class="card" style="--ac:#8a5a3b" href="/klassik-mebel/">
+      <div class="card__top"><h3>Классик-мебель — сайт мебельного салона</h3><span class="num">08</span></div>
       <span class="tag">мебель на заказ</span>
       <p>Лендинг для салона мебели на заказ в Карталах: адаптивная вёрстка, галерея с лайтбоксом, бегущие ленты фотографий, SEO-разметка. Чистые HTML/CSS/JS без фреймворков.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="/cafe-astoria/">
-      <div class="card__top"><h3>Кафе «Астория» — сайт с меню и банкетами</h3><span class="num">08</span></div>
+    <a class="card" style="--ac:#4f772d" href="/cafe-astoria/">
+      <div class="card__top"><h3>Кафе «Астория» — сайт с меню и банкетами</h3><span class="num">09</span></div>
       <span class="tag">кафе</span>
       <p>Одностраничный сайт кафе в Карталах: полное меню на 168 позиций с навигацией по разделам, блок банкетов, встроенная карта проезда. Все иллюстрации нарисованы кодом (SVG) в стиле печатного меню — сайт работает без единой картинки-файла.</p>
       <span class="open">Открыть сайт</span>
     </a>
-    <a class="card" href="/cafe-aelita/">
-      <div class="card__top"><h3>Кафе «Аэлита» — сайт с меню и банкетами</h3><span class="num">09</span></div>
+    <a class="card" style="--ac:#b07d2b" href="/cafe-aelita/">
+      <div class="card__top"><h3>Кафе «Аэлита» — сайт с меню и банкетами</h3><span class="num">10</span></div>
       <span class="tag">кафе</span>
       <p>Второй сайт той же сети со своей цветовой темой. Оба собираются Python-генератором из одного шаблона: меню, адреса и палитра подставляются из данных — правка в одном месте обновляет оба сайта.</p>
       <span class="open">Открыть сайт</span>
