@@ -3,218 +3,511 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="yandex-verification" content="d65397ead09b0660" />
-<title>Лисицин & Селиванова — сайты для бизнеса</title>
-<meta name="description" content="Портфолио веб-программиста Даниила Лисицина и веб-дизайнера Анастасии Селивановой: сайты для малого бизнеса под ключ.">
-<link rel="icon" href="favicon.ico">
+<title>LStudio — создание сайтов</title>
+<meta name="description" content="LStudio — веб-студия Даниила Лисицина и Анастасии Селивановой. Создаём сайты, которые приводят клиентов.">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#f7f3ea;
-  --cream2:#efe9db;
-  --ink:#1d1a16;
-  --gold:#a8894a;
-  --gold-soft:rgba(168,137,74,.16);
-  --gray:#7d7568;
-  --line:#e4dccb;
-  --radius:18px;
+  --bg:#17140f;
+  --bg2:#1e1a13;
+  --card:#221d15;
+  --cream:#f2ead9;
+  --cream-dim:rgba(242,234,217,.62);
+  --cream-faint:rgba(242,234,217,.38);
+  --gold:#c9a86a;
+  --line:rgba(242,234,217,.14);
+  --serif:'Playfair Display',serif;
+  --sans:'Manrope',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans)}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+::selection{background:var(--gold);color:#17140f}
 
-/* ---------- header ---------- */
-header{position:relative;padding:100px 0 70px;overflow:hidden}
-header::before{content:'';position:absolute;top:-180px;right:-140px;width:480px;height:480px;border-radius:50%;
-  background:radial-gradient(circle,var(--gold-soft),transparent 65%);pointer-events:none}
-.brand{display:flex;align-items:center;gap:18px;margin-bottom:34px}
-.monogram{width:64px;height:64px;border-radius:16px;background:var(--ink);color:var(--gold);
-  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;
-  font-weight:700;font-size:24px;letter-spacing:.02em;box-shadow:0 10px 30px rgba(29,26,22,.18)}
-.brand small{display:block;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(38px,6vw,58px);line-height:1.1;letter-spacing:-.01em}
-h1 em{font-style:italic;color:var(--gold)}
-.sub{margin-top:18px;color:var(--gray);font-weight:500;font-size:17px;max-width:600px}
-.links{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:14px;
-  border:1.5px solid var(--ink);transition:.25s}
-.btn:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
-.btn.solid{background:var(--ink);color:var(--cream)}
-.btn.solid:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+/* ===== top bar ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;background:linear-gradient(180deg,rgba(23,20,15,.92),rgba(23,20,15,.75) 70%,transparent);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.topbar__brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.5px}
+.topbar__brand img{width:34px;height:34px;border-radius:9px}
+.topbar__brand small{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:6px}
+.topbar__nav{display:flex;gap:26px;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+.topbar__nav a{color:var(--cream-dim);transition:color .25s}
+.topbar__nav a:hover{color:var(--gold)}
 
-/* ---------- headings ---------- */
-h2{font-family:'Playfair Display',serif;font-weight:600;font-size:30px;margin:64px 0 8px}
-.h2-sub{color:var(--gray);font-size:14px;font-weight:600;margin-bottom:26px;letter-spacing:.02em}
+/* ===== hero ===== */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:110px 20px 70px}
+.hero__float{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fl{position:absolute;font-family:var(--serif);font-weight:700;color:var(--cream);white-space:nowrap;line-height:1;
+  animation:drift var(--d,12s) ease-in-out var(--dl,0s) infinite alternate}
+.fl--big{opacity:.055}
+.fl--sm{font-family:var(--sans);font-weight:600;letter-spacing:4px;text-transform:uppercase;font-size:13px;opacity:.13;color:var(--gold)}
+@keyframes drift{
+  from{transform:translate(0,0) rotate(var(--r,0deg))}
+  to{transform:translate(var(--tx,24px),var(--ty,-30px)) rotate(var(--r,0deg))}
+}
+.hero__in{position:relative;z-index:2}
+.hero__logo{width:150px;height:150px;border-radius:36px;margin:0 auto 30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(242,234,217,.08);
+  animation:logoIn 1.2s cubic-bezier(.2,.7,.2,1) both .15s}
+@keyframes logoIn{from{opacity:0;transform:translateY(26px) scale(.92)}to{opacity:1;transform:none}}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(52px,9vw,110px);line-height:1;letter-spacing:1px;
+  animation:fadeUp 1s cubic-bezier(.2,.7,.2,1) both .35s}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero__sub{margin-top:18px;font-size:clamp(13px,1.6vw,17px);font-weight:600;letter-spacing:6px;text-transform:uppercase;
+  color:var(--cream-dim);animation:fadeUp 1s cubic-bezier(.2,.7,.2,1) both .5s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero__scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--cream-faint);display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero__scroll::after{content:"";width:1px;height:44px;background:linear-gradient(var(--gold),transparent);
+  animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
 
-/* ---------- team ---------- */
-.team{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.person{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.25s}
-.person:hover{border-color:var(--gold);box-shadow:0 14px 40px rgba(29,26,22,.07);transform:translateY(-3px)}
-.person__ava{width:52px;height:52px;border-radius:50%;background:var(--gold-soft);color:var(--gold);
-  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:19px;margin-bottom:16px}
-.person h3{font-weight:800;font-size:18px}
-.person .role{display:inline-block;margin-top:8px;font-weight:700;font-size:11px;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:5px 14px}
-.person p{color:var(--gray);font-weight:500;font-size:14.5px;margin-top:12px}
-.person a{display:inline-block;margin-top:16px;font-weight:700;font-size:13px;color:var(--ink);
-  border-bottom:2px solid var(--gold);transition:.2s}
-.person a:hover{color:var(--gold)}
+/* ===== links strip ===== */
+.links{position:relative;z-index:2;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:34px 20px 10px}
+.linkchip{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(242,234,217,.03);font-weight:600;font-size:15px;transition:border-color .3s,background .3s,transform .3s}
+.linkchip svg{width:20px;height:20px;fill:var(--cream-dim);transition:fill .3s}
+.linkchip:hover{border-color:var(--gold);background:rgba(201,168,106,.08);transform:translateY(-2px)}
+.linkchip:hover svg{fill:var(--gold)}
+.linkchip span{color:var(--cream-dim);font-size:13px}
 
-/* ---------- projects ---------- */
-.cards{display:grid;gap:16px}
-.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 26px 26px 30px;transition:.25s;display:block;overflow:hidden}
-.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ac,var(--gold));
-  opacity:0;transition:.25s}
-.card:hover{border-color:var(--ac,var(--gold));box-shadow:0 16px 44px rgba(29,26,22,.08);transform:translateY(-3px)}
-.card:hover::before{opacity:1}
-.card__top{display:flex;justify-content:space-between;align-items:center;gap:14px}
-.card h3{font-weight:800;font-size:18px}
-.card .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--ac,var(--gold));font-size:22px;flex-shrink:0}
-.card .tag{display:inline-block;margin-top:10px;font-weight:700;font-size:11px;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--ac,var(--gray));background:color-mix(in srgb,var(--ac,#8a7a5e) 10%,#fff);border-radius:999px;padding:4px 12px}
-.card p{color:var(--gray);font-weight:500;font-size:15px;margin-top:10px}
-.card .open{display:inline-block;margin-top:14px;font-weight:700;font-size:13px;color:var(--ac,var(--gold))}
-.card .open::after{content:' →';transition:.2s}
-.card:hover .open::after{margin-left:4px}
+/* ===== section titles ===== */
+.sect{padding:110px 5vw 30px;max-width:1460px;margin:0 auto}
+.sect__kicker{font-size:12px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sect__title{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.5vw,72px);line-height:1.05}
+.sect__title em{font-style:italic;color:var(--gold)}
 
-/* ---------- footer ---------- */
-footer{margin-top:80px;padding:40px 0 46px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-  color:var(--gray);font-size:14px;font-weight:500}
-footer .fmon{width:38px;height:38px;border-radius:10px;font-size:15px}
+/* ===== works ===== */
+.works{max-width:1460px;margin:0 auto;padding:0 5vw}
+.work{position:relative;padding:70px 0 84px;border-top:1px solid var(--line)}
+.work__head{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;margin-bottom:30px}
+.work__name{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.6vw,48px);line-height:1.1}
+.work__tag{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cream-faint)}
+.work__hero{border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45);border:1px solid rgba(242,234,217,.09)}
+.work__hero img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.work__hero:hover img{transform:scale(1.02)}
+.work__mid{position:relative;margin-top:22px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:stretch}
+.work__mid figure{border-radius:16px;overflow:hidden;border:1px solid rgba(242,234,217,.09);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.work__mid .g1{grid-column:span 3}
+.work__mid .g2{grid-column:span 3}
+.work__mid .g3,.work__mid .g4,.work__mid .g5{grid-column:span 2}
+.work__mid figure img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover}
+.work{overflow:hidden}
+.work__icon{position:absolute;z-index:3;top:58%;left:0;width:min(370px,29vw);pointer-events:none;
+  will-change:transform;filter:drop-shadow(0 28px 60px rgba(0,0,0,.6))}
+.work__icon img{width:100%;border-radius:24%}
+.work__btnrow{margin-top:34px;text-align:center}
+.btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  width:124px;height:124px;border-radius:50%;border:1px solid var(--gold);
+  color:var(--gold);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;line-height:1.5;text-align:center;
+  transition:background .3s,color .3s,transform .3s,box-shadow .3s}
+.btn:hover{background:var(--gold);color:#17140f;transform:scale(1.06);box-shadow:0 18px 44px rgba(201,168,106,.3)}
 
-@media(max-width:640px){
-  .team{grid-template-columns:1fr}
-  header{padding:70px 0 50px}
+/* ===== price ===== */
+.price{max-width:1460px;margin:0 auto;padding:40px 5vw 90px}
+.price__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 30px;position:relative;
+  transition:transform .35s,border-color .35s}
+.pcard:hover{transform:translateY(-6px);border-color:rgba(201,168,106,.5)}
+.pcard--hot{border-color:var(--gold);background:linear-gradient(160deg,rgba(201,168,106,.12),var(--card) 55%)}
+.pcard__hot{position:absolute;top:-13px;right:22px;background:var(--gold);color:#17140f;font-size:11px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.pcard__type{font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--cream-faint)}
+.pcard__name{font-family:var(--serif);font-weight:600;font-size:27px;margin:10px 0 4px}
+.pcard__time{font-size:13px;color:var(--cream-dim)}
+.pcard__price{font-family:var(--serif);font-weight:700;font-size:44px;color:var(--gold);margin:22px 0 18px}
+.pcard__price small{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--cream-dim)}
+.pcard ul{list-style:none;display:grid;gap:9px;font-size:14.5px;color:var(--cream-dim)}
+.pcard li{padding-left:20px;position:relative}
+.pcard li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.price__extras{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.extra{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px dashed rgba(201,168,106,.4);
+  border-radius:16px;padding:20px 26px;font-size:15.5px}
+.extra b{color:var(--gold);font-family:var(--serif);font-size:24px;white-space:nowrap}
+.price__included{margin-top:26px;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:34px 34px 30px}
+.price__included h3{font-family:var(--serif);font-weight:600;font-size:24px;margin-bottom:18px}
+.incl{display:flex;flex-wrap:wrap;gap:10px}
+.incl span{border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;color:var(--cream-dim)}
+.price__support{margin-top:20px;text-align:center;font-size:15px;color:var(--cream-dim)}
+.price__support b{color:var(--gold)}
+
+/* ===== footer ===== */
+footer{border-top:1px solid var(--line);padding:70px 5vw 44px;text-align:center;background:var(--bg2)}
+footer img{width:64px;height:64px;border-radius:16px;margin:0 auto 18px}
+footer .fbrand{font-family:var(--serif);font-weight:700;font-size:26px}
+footer .fpeople{margin-top:8px;color:var(--cream-dim);font-size:15px}
+footer .flinks{display:flex;justify-content:center;gap:26px;margin-top:24px;font-size:13px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase}
+footer .flinks a{color:var(--cream-dim);transition:color .25s}
+footer .flinks a:hover{color:var(--gold)}
+footer .fcopy{margin-top:30px;font-size:12.5px;color:var(--cream-faint)}
+
+/* ===== mobile ===== */
+@media (max-width:900px){
+  .price__grid{grid-template-columns:1fr}
+  .price__extras{grid-template-columns:1fr}
+  }
+@media (max-width:640px){
+  .topbar{padding:12px 16px}
+  .topbar__brand small,.topbar__name{display:none}
+  .topbar__brand img{width:30px;height:30px}
+  .topbar__nav{gap:14px;font-size:10.5px}
+  .hero__logo{width:116px;height:116px;border-radius:28px}
+  .work{padding:52px 0 64px}
+  .work__mid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .work__mid .g1{grid-column:span 2}
+  .work__mid .g2,.work__mid .g3,.work__mid .g4,.work__mid .g5{grid-column:span 1}
+  .work__icon{width:150px;top:60%}
+  .btn{width:108px;height:108px;font-size:10px}
+  .sect{padding:80px 5vw 20px}
+  .fl--sm{font-size:10px}
 }
 </style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110889757', 'ym');
-    ym(110889757, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110889757" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header class="wrap">
-  <div class="brand">
-    <div class="monogram">Л&С</div>
-    <small>веб-студия · дизайн и разработка</small>
-  </div>
-  <h1>Сайты, которые приводят <em>клиентов</em></h1>
-  <p class="sub">Мы — веб-программист Даниил Лисицин и веб-дизайнер Анастасия Селиванова. Делаем сайты для малого бизнеса под ключ: дизайн, вёрстка, запуск и поддержка.</p>
-  <div class="links">
-    <a class="btn solid" href="https://github.com/dlisitsinn" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="https://vk.com/qwlisin" target="_blank" rel="noopener">ВКонтакте</a>
-    <a class="btn" href="https://t.me/aishitenn" target="_blank" rel="noopener">Telegram</a>
-  </div>
+
+<header class="topbar">
+  <a class="topbar__brand" href="#top"><img src="img/logo.png" alt="LStudio"><span class="topbar__name">LStudio</span><small>создание сайтов</small></a>
+  <nav class="topbar__nav">
+    <a href="#works">Работы</a>
+    <a href="#price">Прайс</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
 </header>
 
-<main class="wrap">
-  <h2>Команда</h2>
-  <p class="h2-sub">двое — и этого достаточно, чтобы сделать всё</p>
-  <div class="team">
-    <div class="person">
-      <div class="person__ava">ДЛ</div>
-      <h3>Даниил Лисицин</h3>
-      <span class="role">веб-программист</span>
-      <p>Вёрстка и логика сайтов, подключение домена и хостинга, формы записи и заявок, запуск и техническая поддержка.</p>
-      <a href="https://vk.com/qwlisin" target="_blank" rel="noopener">ВКонтакте →</a>
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero__float" id="float"></div>
+  <div class="hero__in">
+    <img class="hero__logo" src="img/logo.png" alt="LS studio">
+    <h1>L<em>S</em>tudio</h1>
+    <div class="hero__sub">создание сайтов</div>
+  </div>
+</section>
+
+<!-- ================= LINKS ================= -->
+<div class="links">
+  <a class="linkchip" href="https://vk.ru/lssttudio" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M13.16 17.85c-5.05 0-7.93-3.46-8.05-9.24h2.53c.08 4.23 1.95 6.02 3.43 6.39V8.61h2.38v3.66c1.46-.16 3-1.82 3.52-3.66h2.38c-.3 1.7-1.56 2.96-2.46 3.6.9.44 2.35 1.58 2.9 3.64h-2.62c-.42-1.31-1.46-2.33-2.9-2.47v2.47h-.11zm-9.98-13.7h19.64c.9 0 1.63.73 1.63 1.63v12.44c0 .9-.73 1.63-1.63 1.63H3.18c-.9 0-1.63-.73-1.63-1.63V5.78c0-.9.73-1.63 1.63-1.63z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+    Мы в VK <span>vk.ru/lssttudio</span>
+  </a>
+</div>
+
+<!-- ================= WORKS ================= -->
+<div class="sect" id="works">
+  <div class="sect__kicker">портфолио</div>
+  <h2 class="sect__title">Наши <em>работы</em></h2>
+</div>
+
+<div class="works">
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Radiant Ride</h3>
+      <span class="work__tag">автосервис · детейлинг</span>
     </div>
-    <div class="person">
-      <div class="person__ava">АС</div>
-      <h3>Анастасия Селиванова</h3>
-      <span class="role">веб-дизайнер</span>
-      <p>Дизайн-концепция и фирменный стиль, типографика и подбор фотографий, макеты страниц, которые продают.</p>
-      <a href="https://vk.ru/nastyasally" target="_blank" rel="noopener">ВКонтакте →</a>
+    <div class="work__hero"><img src="img/radiant-ride-hero.jpg" alt="Radiant Ride — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/radiant-ride-c1.jpg" alt="Radiant Ride — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/radiant-ride-c2.jpg" alt="Radiant Ride — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/radiant-ride-c3.jpg" alt="Radiant Ride — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/radiant-ride-c4.jpg" alt="Radiant Ride — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/radiant-ride-c5.jpg" alt="Radiant Ride — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/radiant-ride_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/radiant-ride/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Sally</h3>
+      <span class="work__tag">цветочная мастерская</span>
+    </div>
+    <div class="work__hero"><img src="img/sally-hero.jpg" alt="Sally — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/sally-c1.jpg" alt="Sally — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/sally-c2.jpg" alt="Sally — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/sally-c3.jpg" alt="Sally — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/sally-c4.jpg" alt="Sally — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/sally-c5.jpg" alt="Sally — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/sally_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/sally/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Pure Vision</h3>
+      <span class="work__tag">архитектурное бюро</span>
+    </div>
+    <div class="work__hero"><img src="img/pure-vision-hero.jpg" alt="Pure Vision — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/pure-vision-c1.jpg" alt="Pure Vision — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/pure-vision-c2.jpg" alt="Pure Vision — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/pure-vision-c3.jpg" alt="Pure Vision — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/pure-vision-c4.jpg" alt="Pure Vision — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/pure-vision-c5.jpg" alt="Pure Vision — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/pure-vision_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/pure-vision/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Velvet</h3>
+      <span class="work__tag">салон красоты</span>
+    </div>
+    <div class="work__hero"><img src="img/velvet-hero.jpg" alt="Velvet — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/velvet-c1.jpg" alt="Velvet — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/velvet-c2.jpg" alt="Velvet — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/velvet-c3.jpg" alt="Velvet — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/velvet-c4.jpg" alt="Velvet — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/velvet-c5.jpg" alt="Velvet — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/velvet_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/velvet/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">GYMGOD</h3>
+      <span class="work__tag">тренажёрный зал</span>
+    </div>
+    <div class="work__hero"><img src="img/gymgod-hero.jpg" alt="GYMGOD — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/gymgod-c1.jpg" alt="GYMGOD — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/gymgod-c2.jpg" alt="GYMGOD — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/gymgod-c3.jpg" alt="GYMGOD — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/gymgod-c4.jpg" alt="GYMGOD — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/gymgod-c5.jpg" alt="GYMGOD — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/gymgod_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/gymgod/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">SkillRise</h3>
+      <span class="work__tag">онлайн-курс</span>
+    </div>
+    <div class="work__hero"><img src="img/skillrise-hero.jpg" alt="SkillRise — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/skillrise-c1.jpg" alt="SkillRise — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/skillrise-c2.jpg" alt="SkillRise — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/skillrise-c3.jpg" alt="SkillRise — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/skillrise-c4.jpg" alt="SkillRise — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/skillrise-c5.jpg" alt="SkillRise — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/skillrise_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/skillrise/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Пион</h3>
+      <span class="work__tag">ресторан авторской кухни</span>
+    </div>
+    <div class="work__hero"><img src="img/pion-hero.jpg" alt="Пион — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/pion-c1.jpg" alt="Пион — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/pion-c2.jpg" alt="Пион — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/pion-c3.jpg" alt="Пион — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/pion-c4.jpg" alt="Пион — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/pion-c5.jpg" alt="Пион — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/pion_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/pion/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">DENTAL</h3>
+      <span class="work__tag">стоматология</span>
+    </div>
+    <div class="work__hero"><img src="img/dental-hero.jpg" alt="DENTAL — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/dental-c1.jpg" alt="DENTAL — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/dental-c2.jpg" alt="DENTAL — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/dental-c3.jpg" alt="DENTAL — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/dental-c4.jpg" alt="DENTAL — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/dental-c5.jpg" alt="DENTAL — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/dental_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/dental/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+  <section class="work">
+    <div class="work__head">
+      <h3 class="work__name">Классик-мебель</h3>
+      <span class="work__tag">мебельный салон</span>
+    </div>
+    <div class="work__hero"><img src="img/klassik-mebel-hero.jpg" alt="Классик-мебель — главный экран" loading="lazy"></div>
+    <div class="work__mid">
+      <figure class="g1"><img src="img/klassik-mebel-c1.jpg" alt="Классик-мебель — кадр 1" loading="lazy"></figure>
+      <figure class="g2"><img src="img/klassik-mebel-c2.jpg" alt="Классик-мебель — кадр 2" loading="lazy"></figure>
+      <figure class="g3"><img src="img/klassik-mebel-c3.jpg" alt="Классик-мебель — кадр 3" loading="lazy"></figure>
+      <figure class="g4"><img src="img/klassik-mebel-c4.jpg" alt="Классик-мебель — кадр 4" loading="lazy"></figure>
+      <figure class="g5"><img src="img/klassik-mebel-c5.jpg" alt="Классик-мебель — кадр 5" loading="lazy"></figure>
+    </div>
+    <div class="work__icon"><img src="icons/klassik-mebel_512.png" alt=""></div>
+    <div class="work__btnrow"><a class="btn" href="https://dlisitsinn.github.io/klassik-mebel/" target="_blank" rel="noopener"><span>перейти<br>на сайт</span></a></div>
+  </section>
+
+</div>
+
+<!-- ================= PRICE ================= -->
+<div class="sect" id="price">
+  <div class="sect__kicker">стоимость</div>
+  <h2 class="sect__title">Прайс-<em>лист</em></h2>
+</div>
+
+<div class="price">
+  <div class="price__grid">
+    <div class="pcard">
+      <div class="pcard__type">для старта</div>
+      <div class="pcard__name">Лендинг</div>
+      <div class="pcard__time">срок — до 2 дней</div>
+      <div class="pcard__price">10 000 <small>₽</small></div>
+      <ul>
+        <li>Одностраничный сайт под вашу задачу</li>
+        <li>Продающая структура и тексты</li>
+        <li>Форма заявки</li>
+      </ul>
+    </div>
+    <div class="pcard pcard--hot">
+      <div class="pcard__hot">выбирают чаще</div>
+      <div class="pcard__type">для бизнеса</div>
+      <div class="pcard__name">Каталог</div>
+      <div class="pcard__time">срок — до 5 дней</div>
+      <div class="pcard__price">20 000 <small>₽</small></div>
+      <ul>
+        <li>Каталог товаров или услуг с базой данных</li>
+        <li>Фильтры, карточки, поиск</li>
+        <li>Панель управления контентом</li>
+      </ul>
+    </div>
+    <div class="pcard">
+      <div class="pcard__type">под ключ</div>
+      <div class="pcard__name">Сайт с оплатой</div>
+      <div class="pcard__time">срок — до 7 дней</div>
+      <div class="pcard__price">30 000 <small>₽</small></div>
+      <ul>
+        <li>Приём онлайн-оплат на сайте</li>
+        <li>Личный кабинет клиента</li>
+        <li>Уведомления о заказах</li>
+      </ul>
     </div>
   </div>
 
-  <h2>Проекты</h2>
-  <p class="h2-sub">каждый сайт — живой, можно открыть и потрогать</p>
-  <div class="cards">
-    <a class="card" style="--ac:#7fa313" href="https://dlisitsinn.github.io/skillrise/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>SkillRise — лендинг онлайн-курса по доходу</h3><span class="num">01</span></div>
-      <span class="tag">инфопродукт · курсы</span>
-      <p>Тёмный продающий лендинг в стиле топовых запусков: оффер с цифрой дохода, результаты учеников, программа-аккордеон, тарифы со скидкой и живой таймер, отзывы с фото прямо на карточках.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#b5542e" href="https://dlisitsinn.github.io/pure-vision/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Pure Vision — сайт архитектурного бюро</h3><span class="num">02</span></div>
-      <span class="tag">архитектура · интерьеры</span>
-      <p>Минимализм в духе лучших мировых бюро: фото во весь экран, 10 проектов «лесенкой», тёмный блок о команде, этапы работы и форма заявки. Вся графика сгенерирована специально под сайт.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#253ff6" href="https://dlisitsinn.github.io/radiant-ride/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Radiant Ride — сайт детейлинг-студии и автосервиса</h3><span class="num">03</span></div>
-      <span class="tag">автосервис · детейлинг · мойка</span>
-      <p>Тёмный сайт детейлинг-студии с лаймовыми акцентами: главный экран с крупной типографикой и фотографией автомобилей, три направления услуг, девять карточек с ценами, слайдер «Наши работы» с реальными проектами, акция, отзывы клиентов и форма онлайн-записи. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#2f8f83" href="https://dlisitsinn.github.io/dental/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>DENTAL — сайт стоматологической клиники</h3><span class="num">04</span></div>
-      <span class="tag">стоматология</span>
-      <p>Сайт семейной стоматологии в кремово-бирюзовой гамме: услуги с ценами, акции, врачи с фотографиями, отзывы пациентов, фотогалерея клиники и форма записи на бесплатную консультацию — без навязчивых всплывающих окон. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#e0452a" href="https://dlisitsinn.github.io/gymgod/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>GYMGOD — сайт фитнес-клуба</h3><span class="num">05</span></div>
-      <span class="tag">фитнес-клуб</span>
-      <p>Неоновый сайт круглосуточного фитнес-клуба в розово-синей гамме: главный экран со сменой фотографий зала, бегущая лента, зоны клуба, тарифы абонементов, галерея и форма записи на бесплатную тренировку. Полностью адаптивный — одинаково хорошо смотрится на компьютере и телефоне. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#d66a9e" href="https://dlisitsinn.github.io/sally/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Sally — сайт цветочного магазина</h3><span class="num">06</span></div>
-      <span class="tag">цветочный магазин</span>
-      <p>Витрина цветочного магазина: каталог букетов с ценами — розы, пионы, авторские композиции, — оформление заказа с доставкой. Живое одностраничное приложение, всё работает в браузере без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#b23a48" href="https://dlisitsinn.github.io/pion/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>«Пион» — сайт ресторана авторской кухни</h3><span class="num">07</span></div>
-      <span class="tag">ресторан</span>
-      <p>Светлый одностраничный сайт ресторана: анимированное интро-приветствие, главный экран со сменой фотографий зала, меню с переключением разделов, новости, банкеты, доставка, карта лояльности и всплывающая форма бронирования. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#7c5cbf" href="https://dlisitsinn.github.io/velvet/" target="_blank" rel="noopener">
-      <div class="card__top"><h3>Velvet — сайт салона красоты</h3><span class="num">08</span></div>
-      <span class="tag">салон красоты</span>
-      <p>Одностраничный сайт beauty space в премиальном стиле: прайс по грейдам мастеров, сеты услуг, фото-баннеры направлений, форма консультации, отзывы и сертификаты. Чистые HTML/CSS/JS без конструкторов.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#8a5a3b" href="/klassik-mebel/">
-      <div class="card__top"><h3>Классик-мебель — сайт мебельного салона</h3><span class="num">09</span></div>
-      <span class="tag">мебель на заказ</span>
-      <p>Лендинг для салона мебели на заказ в Карталах: адаптивная вёрстка, галерея с лайтбоксом, бегущие ленты фотографий, SEO-разметка. Чистые HTML/CSS/JS без фреймворков.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#4f772d" href="/cafe-astoria/">
-      <div class="card__top"><h3>Кафе «Астория» — сайт с меню и банкетами</h3><span class="num">10</span></div>
-      <span class="tag">кафе</span>
-      <p>Одностраничный сайт кафе в Карталах: полное меню на 168 позиций с навигацией по разделам, блок банкетов, встроенная карта проезда. Все иллюстрации нарисованы кодом (SVG) в стиле печатного меню — сайт работает без единой картинки-файла.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
-    <a class="card" style="--ac:#b07d2b" href="/cafe-aelita/">
-      <div class="card__top"><h3>Кафе «Аэлита» — сайт с меню и банкетами</h3><span class="num">11</span></div>
-      <span class="tag">кафе</span>
-      <p>Второй сайт той же сети со своей цветовой темой. Оба собираются Python-генератором из одного шаблона: меню, адреса и палитра подставляются из данных — правка в одном месте обновляет оба сайта.</p>
-      <span class="open">Открыть сайт</span>
-    </a>
+  <div class="price__extras">
+    <div class="extra"><span>Онлайн-запись на сайте</span><b>+ 5 000 ₽</b></div>
+    <div class="extra"><span>Заявки в Telegram или ВК</span><b>+ 4 000 ₽</b></div>
   </div>
-</main>
 
-<footer class="wrap">
-  <div class="monogram fmon">Л&С</div>
-  <span>© Даниил Лисицин и Анастасия Селиванова · сделано вручную, без конструкторов</span>
+  <div class="price__included">
+    <h3>Включено в любой сайт</h3>
+    <div class="incl">
+      <span>Дизайн</span>
+      <span>Вёрстка</span>
+      <span>Адаптив под телефон</span>
+      <span>Домен и хостинг — на нас</span>
+      <span>Базовое SEO</span>
+      <span>Договор</span>
+    </div>
+  </div>
+
+  <div class="price__support">Поддержка сайта после запуска — <b>500 ₽/мес</b></div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contacts">
+  <img src="img/logo.png" alt="LStudio">
+  <div class="fbrand">LStudio</div>
+  <div class="fpeople">Даниил Лисицин и Анастасия Селиванова — создание сайтов</div>
+  <div class="flinks">
+    <a href="https://vk.ru/lssttudio" target="_blank" rel="noopener">VK</a>
+  </div>
+  <div class="fcopy">© 2026 LStudio. Все сайты в портфолио — наши работы.</div>
 </footer>
+
+<script>
+/* ---------- плавающие буквы в хиро ---------- */
+(function(){
+  var wrap = document.getElementById('float');
+  var letters = 'LStudio'.split('');
+  var spots = [
+    {x:4,  y:8,  s:22}, {x:60, y:2,  s:17}, {x:78, y:24, s:24},
+    {x:10, y:62, s:19}, {x:84, y:66, s:16}, {x:30, y:82, s:23},
+    {x:55, y:72, s:15}
+  ];
+  letters.forEach(function(ch, i){
+    var p = spots[i % spots.length];
+    var el = document.createElement('span');
+    el.className = 'fl fl--big';
+    el.textContent = ch;
+    el.style.left = p.x + '%';
+    el.style.top = p.y + '%';
+    el.style.fontSize = p.s + 'vw';
+    el.style.setProperty('--d', (9 + i * 1.3) + 's');
+    el.style.setProperty('--dl', (-i * 1.7) + 's');
+    el.style.setProperty('--tx', (i % 2 ? -1 : 1) * (18 + i * 4) + 'px');
+    el.style.setProperty('--ty', (i % 3 ? -1 : 1) * (22 + i * 3) + 'px');
+    el.style.setProperty('--r', ((i % 5) - 2) * 4 + 'deg');
+    wrap.appendChild(el);
+  });
+  var labels = [
+    {x:12,y:30},{x:66,y:44},{x:22,y:48},{x:74,y:84},{x:38,y:14},{x:8,y:84}
+  ];
+  labels.forEach(function(p, i){
+    var el = document.createElement('span');
+    el.className = 'fl fl--sm';
+    el.textContent = 'создание сайтов';
+    el.style.left = p.x + '%';
+    el.style.top = p.y + '%';
+    el.style.setProperty('--d', (11 + i * 1.1) + 's');
+    el.style.setProperty('--dl', (-i * 2.3) + 's');
+    el.style.setProperty('--tx', (i % 2 ? -1 : 1) * 26 + 'px');
+    el.style.setProperty('--ty', (i % 3 ? -1 : 1) * 18 + 'px');
+    wrap.appendChild(el);
+  });
+})();
+
+/* ---------- иконки летят справа налево через весь экран ---------- */
+(function(){
+  var items = [];
+  document.querySelectorAll('.work').forEach(function(w){
+    var icon = w.querySelector('.work__icon');
+    if (icon) items.push({work: w, icon: icon, cur: 0});
+  });
+  var vh = window.innerHeight;
+  window.addEventListener('resize', function(){ vh = window.innerHeight; }, {passive:true});
+
+  function frame(){
+    items.forEach(function(t){
+      var r = t.work.getBoundingClientRect();
+      // 0 — блок под экраном, 1 — блок ушёл наверх
+      var p = (vh - r.top) / (vh + r.height);
+      p = Math.max(0, Math.min(1, p));
+      t.cur += (p - t.cur) * 0.14;               // плавность
+      var W = t.work.clientWidth;
+      var iw = t.icon.clientWidth;
+      var x = (1 - t.cur) * (W + iw) - iw;       // от правого края до левого
+      t.icon.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(-50%)';
+    });
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
 </body>
 </html>
